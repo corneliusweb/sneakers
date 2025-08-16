@@ -18,14 +18,14 @@ import Header from '../components/Header';
 
 const Women = () => {
 	return (
-		<div className='sm:px-48'>
+		<div className='sm:px-8 md:px-10 lg:px-20 max-w-[1150px] mx-auto'>
 			<Header />
-			<main className='sm:flex sm:items-center sm:justify-between sm:px-20'>
-				<section className='relative sm:w-[400px]'>
+			<main className='sm:flex sm:items-center sm:justify-between sm:px-0 sm:gap-8 md:px-10'>
+				<section className='relative sm:w-[380px] max-w-[310px]'>
 					<img
 						src={imageProduct1}
 						alt='shoe image'
-						className='aspect-square w-full sm:rounded-md'
+						className='aspect-square w-full sm:rounded-md max-w-[310px]'
 					/>
 					<button className='prv-nxt-btn left-3 sm:hidden'>
 						<img
@@ -49,7 +49,7 @@ const Women = () => {
 								className='rounded-md'
 							/>
 						</div>
-						<div className='w-[87px rounded-md'>
+						<div className='rounded-md'>
 							<img
 								src={imageProduct2Thumbnail}
 								alt='shoe thumbnail'
@@ -73,11 +73,11 @@ const Women = () => {
 					</div>
 				</section>
 
-				<section className='p-5 sm:w-[490px]'>
+				<section className='p-5 sm:w-[350px] md:w-[500px] sm:p-0'>
 					<p className='uppercase tracking-widest text-[13px] text-dark-grayish-blue font-bold'>
 						Sneaker company
 					</p>
-					<h1 className='font-bold text-3xl capitalize my-4 antialiased text-dark-blue sm:mb-6'>
+					<h1 className='font-bold text-3xl capitalize my-4 antialiased text-dark-blue md:mb-6'>
 						Fall limited edition <br /> Sneakers
 					</h1>
 					<p className='font-semibold text-dark-grayish-blue tracking-wide mb-7'>
@@ -99,11 +99,11 @@ const Women = () => {
 
 					<div className='sm:flex items-center'>
 						<div className='w-full bg-light-grayish-blue flex-center justify-between rounded-md mb-6  sm:mb-0 sm:w-[320px]'>
-							<button className='cursor-pointer p-4'>
+							<button className='cursor-pointer p-4.5'>
 								<img src={minusIcon} alt='minus icon' />
 							</button>
 							<span className='font-bold'>0</span>
-							<button className='cursor-pointer p-6'>
+							<button className='cursor-pointer p-4.5'>
 								<img src={plusIcon} alt='plus icon' />
 							</button>
 						</div>
