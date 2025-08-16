@@ -1,6 +1,5 @@
+import Women from './pages/Women';
 const App = () => {
-  return (
-    <div>App</div>
-  )
-}
-export default App
+	return <Women />;
+};
+export default App;

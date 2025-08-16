@@ -35,3 +35,15 @@
 		font-size: 16px;
 	}
 }
+
+@layer components {
+	.prv-nxt-btn {
+		@apply absolute top-1/2 bg-white w-10 h-10 content-center rounded-full cursor-pointer;
+	}
+}
+
+@layer utilities {
+	.flex-center {
+		@apply flex items-center anti;
+	}
+}
