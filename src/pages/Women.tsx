@@ -79,20 +79,29 @@ const Women = () => {
 					</div>
 				</section>
 
-				<section>
-					<p>Sneaker company</p>
-					<h1>
+				<section className='p-4'>
+					<p className='uppercase tracking-widest text-[13px] text-dark-grayish-blue font-bold'>
+						Sneaker company
+					</p>
+					<h1 className='font-bold text-3xl capitalize my-4 antialiased text-dark-blue'>
 						Fall limited edition <br /> Sneakers
 					</h1>
-					<p>
+					<p className='font-semibold text-dark-grayish-blue tracking-wide mb-7'>
 						These low profile sneakers are your perfect casual wear
 						companion. Featuring a durable rubber outer sole they'll
 						withstand everything the weather can offer.
 					</p>
-					<p>
-						$125.00 <span>50%</span>
-					</p>
-					<p>$250.00</p>
+					<div className='flex-center justify-between '>
+						<p className='text-dark-blue font-bold text-2xl grow relative'>
+							$125.00
+							<span className='text-base bg-dark-blue text-white px-2 py-0.5 inline-block rounded-md absolute transform left-25 top-1/2 -translate-y-1/2'>
+								50%
+							</span>
+						</p>
+						<p className='font-bold text-dark-grayish-blue line-through decoration-dark-grayish-blue tracking-wide'>
+							$250.00
+						</p>
+					</div>
 
 					<div>
 						<span>
