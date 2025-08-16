@@ -18,14 +18,14 @@ import Header from '../components/Header';
 
 const Women = () => {
 	return (
-		<div className='sm:px-8 md:px-10 lg:px-20 max-w-[1150px] mx-auto'>
+		<div className='sm:px-8 md:px-10 lg:px-20 max-w-[1120px] mx-auto h-screen'>
 			<Header />
-			<main className='sm:flex sm:items-center sm:justify-between sm:px-0 sm:gap-8 md:px-10'>
-				<section className='relative sm:w-[380px] max-w-[310px]'>
+			<main className='mt-4 sm:my-20 sm:flex sm:items-center sm:justify-between sm:px-0 sm:gap-8 md:px-10'>
+				<section className='relative sm:w-[380px] sm:max-w-[310px]'>
 					<img
 						src={imageProduct1}
 						alt='shoe image'
-						className='aspect-square w-full sm:rounded-md max-w-[310px]'
+						className='aspect-square w-full sm:rounded-md sm:max-w-[310px]'
 					/>
 					<button className='prv-nxt-btn left-3 sm:hidden'>
 						<img
@@ -73,7 +73,7 @@ const Women = () => {
 					</div>
 				</section>
 
-				<section className='p-5 sm:w-[350px] md:w-[500px] sm:p-0'>
+				<section className='p-5 sm:w-[350px] md:w-[450px] sm:p-0'>
 					<p className='uppercase tracking-widest text-[13px] text-dark-grayish-blue font-bold'>
 						Sneaker company
 					</p>
@@ -98,7 +98,7 @@ const Women = () => {
 					</div>
 
 					<div className='sm:flex items-center'>
-						<div className='w-full bg-light-grayish-blue flex-center justify-between rounded-md mb-6  sm:mb-0 sm:w-[320px]'>
+						<div className='w-full bg-light-grayish-blue flex-center justify-between rounded-md mb-6 sm:mb-0 sm:w-[310px]'>
 							<button className='cursor-pointer p-4.5'>
 								<img src={minusIcon} alt='minus icon' />
 							</button>
