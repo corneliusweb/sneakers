@@ -1,6 +1,17 @@
-const Button = () => {
-  return (
-    <button>button</button>
-  )
+import type { ReactNode } from 'react';
+
+interface Props {
+	children: ReactNode;
+	className?: string;
 }
-export default Button
+
+const Button = ({ children, className = '' }: Props) => {
+	return (
+		<button
+			className={`flex-center gap-4 bg-orange block w-full p-3 rounded-md justify-center ${className}`}
+		>
+			{children}
+		</button>
+	);
+};
+export default Button;

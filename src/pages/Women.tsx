@@ -21,7 +21,7 @@ import {
 
 const Women = () => {
 	return (
-		<div>
+		<>
 			<header className='flex-center justify-between p-4'>
 				<div className='flex-center gap-5 grow'>
 					<button className='cursor-pointer inline-block '>
@@ -79,7 +79,7 @@ const Women = () => {
 					</div>
 				</section>
 
-				<section className='p-4'>
+				<section className='p-5'>
 					<p className='uppercase tracking-widest text-[13px] text-dark-grayish-blue font-bold'>
 						Sneaker company
 					</p>
@@ -91,7 +91,7 @@ const Women = () => {
 						companion. Featuring a durable rubber outer sole they'll
 						withstand everything the weather can offer.
 					</p>
-					<div className='flex-center justify-between '>
+					<div className='flex-center justify-between mb-4'>
 						<p className='text-dark-blue font-bold text-2xl grow relative'>
 							$125.00
 							<span className='text-base bg-dark-blue text-white px-2 py-0.5 inline-block rounded-md absolute transform left-25 top-1/2 -translate-y-1/2'>
@@ -104,20 +104,23 @@ const Women = () => {
 					</div>
 
 					<div>
-						<span>
-							<button>
+						<div className='w-full bg-light-grayish-blue flex-center justify-between p-3 rounded-md mb-6'>
+							<button className='cursor-pointer'>
 								<img src={minusIcon} alt='minus icon' />
 							</button>
-							0
-							<button>
+							<span className='font-bold'>0</span>
+							<button className='cursor-pointer'>
 								<img src={plusIcon} alt='plus icon' />
 							</button>
-						</span>
-						<Button />
+						</div>
+						<Button>
+							<img src={cartIcon} alt='cart icon' />
+							<span className='font-bold'>Add to cart</span>
+						</Button>
 					</div>
 				</section>
 			</main>
-		</div>
+		</>
 	);
 };
 export default Women;
