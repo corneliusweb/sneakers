@@ -4,7 +4,7 @@ import { avatar } from '../assets/images';
 const Header = () => {
 	return (
 		<header className='flex-center justify-between p-4 sm:px-0 sm:border-b sm:border-dark-blue/15 sm:mb-12'>
-			<div className='flex-center gap-5'>
+			<div className='flex-center gap-6'>
 				<button className='cursor-pointer inline-block sm:hidden'>
 					<img src={menuIcon} alt='menu icon' />
 				</button>
@@ -17,7 +17,7 @@ const Header = () => {
 						alt='close menu button'
 						className='mb-12 sm:hidden'
 					/>
-					<nav className=' text-black antialiased font-bold text-xl tracking-wide sm:text-lg sm:text-grayish-blue sm:font-semibold'>
+					<nav className=' text-black antialiased font-bold text-xl tracking-wide sm:text-base sm:text-dark-grayish-blue sm:font-semibold sm:tracking-wider'>
 						<ul className='grid gap-4 sm:flex'>
 							<li>Collections</li>
 							<li>Men</li>

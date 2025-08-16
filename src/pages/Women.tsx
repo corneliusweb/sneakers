@@ -18,42 +18,66 @@ import Header from '../components/Header';
 
 const Women = () => {
 	return (
-		<div className='sm:px-28'>
+		<div className='sm:px-48'>
 			<Header />
-			<main className='max-w-[1440px] '>
-				<section className='relative'>
+			<main className='sm:flex sm:items-center sm:justify-between sm:px-20'>
+				<section className='relative sm:w-[400px]'>
 					<img
 						src={imageProduct1}
 						alt='shoe image'
-						className='aspect-square'
+						className='aspect-square w-full sm:rounded-md'
 					/>
-					<button className='prv-nxt-btn left-3'>
+					<button className='prv-nxt-btn left-3 sm:hidden'>
 						<img
 							src={previousIcon}
 							alt='previous icon'
 							className='inline-block w-2.5'
 						/>
 					</button>
-					<button className='prv-nxt-btn right-3'>
+					<button className='prv-nxt-btn right-3 sm:hidden'>
 						<img
 							src={nextIcon}
 							alt='next icon'
 							className='inline-block w-2.5'
 						/>
 					</button>
-					<div className='hidden'>
-						<img src={imageProduct1Thumbnail} alt='shoe thumbnail' />
-						<img src={imageProduct2Thumbnail} alt='shoe thumbnail' />
-						<img src={imageProduct3Thumbnail} alt='shoe thumbnail' />
-						<img src={imageProduct4Thumbnail} alt='shoe thumbnail' />
+					<div className='hidden sm:flex w-full gap-2 mt-5'>
+						<div className='rounded-md'>
+							<img
+								src={imageProduct1Thumbnail}
+								alt='shoe thumbnail'
+								className='rounded-md'
+							/>
+						</div>
+						<div className='w-[87px rounded-md'>
+							<img
+								src={imageProduct2Thumbnail}
+								alt='shoe thumbnail'
+								className='rounded-md'
+							/>
+						</div>
+						<div className='rounded-md'>
+							<img
+								src={imageProduct3Thumbnail}
+								alt='shoe thumbnail'
+								className='rounded-md'
+							/>
+						</div>
+						<div className='rounded-md'>
+							<img
+								src={imageProduct4Thumbnail}
+								alt='shoe thumbnail'
+								className='rounded-md'
+							/>
+						</div>
 					</div>
 				</section>
 
-				<section className='p-5'>
+				<section className='p-5 sm:w-[490px]'>
 					<p className='uppercase tracking-widest text-[13px] text-dark-grayish-blue font-bold'>
 						Sneaker company
 					</p>
-					<h1 className='font-bold text-3xl capitalize my-4 antialiased text-dark-blue'>
+					<h1 className='font-bold text-3xl capitalize my-4 antialiased text-dark-blue sm:mb-6'>
 						Fall limited edition <br /> Sneakers
 					</h1>
 					<p className='font-semibold text-dark-grayish-blue tracking-wide mb-7'>
@@ -61,10 +85,10 @@ const Women = () => {
 						companion. Featuring a durable rubber outer sole they'll
 						withstand everything the weather can offer.
 					</p>
-					<div className='flex-center justify-between mb-4'>
+					<div className='flex-center justify-between mb-4 sm:mb-6'>
 						<p className='text-dark-blue font-bold text-2xl grow relative'>
 							$125.00
-							<span className='text-base bg-dark-blue text-white px-2 py-0.5 inline-block rounded-md absolute transform left-25 top-1/2 -translate-y-1/2'>
+							<span className='text-sm font-semibold bg-dark-blue text-white px-2.5 py-1 inline-block rounded-md absolute transform left-25 top-1/2 -translate-y-1/2'>
 								50%
 							</span>
 						</p>
@@ -73,13 +97,13 @@ const Women = () => {
 						</p>
 					</div>
 
-					<div>
-						<div className='w-full bg-light-grayish-blue flex-center justify-between p-3 rounded-md mb-6'>
-							<button className='cursor-pointer'>
+					<div className='sm:flex items-center'>
+						<div className='w-full bg-light-grayish-blue flex-center justify-between rounded-md mb-6  sm:mb-0 sm:w-[320px]'>
+							<button className='cursor-pointer p-4'>
 								<img src={minusIcon} alt='minus icon' />
 							</button>
 							<span className='font-bold'>0</span>
-							<button className='cursor-pointer'>
+							<button className='cursor-pointer p-6'>
 								<img src={plusIcon} alt='plus icon' />
 							</button>
 						</div>
