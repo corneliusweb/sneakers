@@ -1,13 +1,31 @@
 import Button from '../components/Button';
+import {
+	logo,
+	cartIcon,
+	menuIcon,
+	minusIcon,
+	plusIcon,
+	nextIcon,
+	previousIcon,
+} from '../assets/vectors';
+
+import {
+	avatar,
+	imageProduct1,
+	imageProduct1Thumbnail,
+	imageProduct2Thumbnail,
+	imageProduct3Thumbnail,
+	imageProduct4Thumbnail,
+} from '../assets/images';
 
 const Women = () => {
 	return (
 		<div>
 			<header>
 				<div>
-					<img src='' alt='menu icon' aria-label='menu icon' />
+					<img src={menuIcon} alt='menu icon' />
 
-					<img src='' alt='Sneakers logo' />
+					<img src={logo} alt='Sneakers logo' />
 					<nav>
 						<ul>
 							<li>Collections</li>
@@ -19,20 +37,26 @@ const Women = () => {
 					</nav>
 				</div>
 				<div>
-					<img src='' alt='cart icon' aria-label='cart icon' />
+					<img src={cartIcon} alt='cart icon' />
 					<span>
-						<img src='' alt='profile avatar' />
+						<img src={avatar} alt='profile avatar' />
 					</span>
 				</div>
 			</header>
 			<main>
 				<section>
-					<img src='' alt='shoe image' />
+					<img src={imageProduct1} alt='shoe image' />
+					<button>
+						<img src={previousIcon} alt='previous icon' />
+					</button>
+					<button>
+						<img src={nextIcon} alt='next icon' />
+					</button>
 					<div>
-						<img src='' alt='shoe' />
-						<img src='' alt='shoe' />
-						<img src='' alt='shoe' />
-						<img src='' alt='shoe' />
+						<img src={imageProduct1Thumbnail} alt='shoe thumbnail' />
+						<img src={imageProduct2Thumbnail} alt='shoe thumbnail' />
+						<img src={imageProduct3Thumbnail} alt='shoe thumbnail' />
+						<img src={imageProduct4Thumbnail} alt='shoe thumbnail' />
 					</div>
 				</section>
 
@@ -54,11 +78,11 @@ const Women = () => {
 					<div>
 						<span>
 							<button>
-								<img src='' alt='minus icon' />
+								<img src={minusIcon} alt='minus icon' />
 							</button>
 							0
 							<button>
-								<img src='' alt='plus icon' />
+								<img src={plusIcon} alt='plus icon' />
 							</button>
 						</span>
 						<Button />
