@@ -22,7 +22,7 @@ const ProductCard = ({
 	const { productImages, productDetails } = product;
 
 	return (
-		<div className='sm:flex sm:items-center sm:justify-center sm:px-0 sm:gap-12'>
+		<div className='sm:flex sm:items-center sm:justify-center sm:px-0 sm:gap-6'>
 			<section className='relative sm:w-[340px]'>
 				<button className='prv-nxt-btn left-3 sm:hidden'>
 					<img
@@ -74,7 +74,7 @@ const ProductCard = ({
 			</section>
 
 			{product && (
-				<section className='p-5 sm:w-[350px] md:w-[406px] sm:p-0'>
+				<section className='p-4 w-[406px]'>
 					<p className='uppercase tracking-widest text-[13px] text-dark-grayish-blue font-bold'>
 						{productDetails.company}
 					</p>
