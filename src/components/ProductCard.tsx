@@ -22,8 +22,8 @@ const ProductCard = ({
 	const { productImages, productDetails } = product;
 
 	return (
-		<div className='mt-4 mb-20 sm:my-20 sm:flex sm:items-center sm:justify-between sm:px-0 sm:gap-8 md:px-10'>
-			<section className='relative sm:w-[380px] sm:max-w-[310px]'>
+		<div className='sm:flex sm:items-center sm:justify-center sm:px-0 sm:gap-12'>
+			<section className='relative sm:w-[340px]'>
 				<button className='prv-nxt-btn left-3 sm:hidden'>
 					<img
 						src={previousIcon}
@@ -42,7 +42,7 @@ const ProductCard = ({
 				<img
 					src={selectedProduct}
 					alt={productDetails.heading}
-					className='aspect-square w-full sm:rounded-md sm:max-w-[310px]'
+					className='aspect-square w-full sm:rounded-md'
 				/>
 				<div className='hidden sm:flex w-full gap-2 mt-5'>
 					{productImages.map((productImage, index) => (
@@ -74,7 +74,7 @@ const ProductCard = ({
 			</section>
 
 			{product && (
-				<section className='p-5 sm:w-[350px] md:w-[450px] sm:p-0'>
+				<section className='p-5 sm:w-[350px] md:w-[406px] sm:p-0'>
 					<p className='uppercase tracking-widest text-[13px] text-dark-grayish-blue font-bold'>
 						{productDetails.company}
 					</p>
