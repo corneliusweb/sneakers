@@ -9,9 +9,14 @@ import {
 	imageProduct4Thumbnail,
 } from '../assets/images';
 
-export const shoes = [
-	{ bigShoe1: imageProduct1, thumbnail: imageProduct1Thumbnail },
-	{ bigShoe2: imageProduct2, thumbnail: imageProduct2Thumbnail },
-	{ bigShoe3: imageProduct3, thumbnail: imageProduct3Thumbnail },
-	{ bigShoe4: imageProduct4, thumbnail: imageProduct4Thumbnail },
+type Products = {
+	productUrl: string;
+	thumbnail: string;
+};
+
+export const products: Products[] = [
+	{ productUrl: imageProduct1, thumbnail: imageProduct1Thumbnail },
+	{ productUrl: imageProduct2, thumbnail: imageProduct2Thumbnail },
+	{ productUrl: imageProduct3, thumbnail: imageProduct3Thumbnail },
+	{ productUrl: imageProduct4, thumbnail: imageProduct4Thumbnail },
 ];

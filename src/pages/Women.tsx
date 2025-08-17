@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import {
 	cartIcon,
 	minusIcon,
@@ -5,28 +7,21 @@ import {
 	nextIcon,
 	previousIcon,
 } from '../assets/vectors';
-import {
-	imageProduct1,
-	imageProduct1Thumbnail,
-	imageProduct2Thumbnail,
-	imageProduct3Thumbnail,
-	imageProduct4Thumbnail,
-} from '../assets/images';
+import { imageProduct1 } from '../assets/images';
+import { products } from '../constants';
 
 import Button from '../components/Button';
 import Header from '../components/Header';
 
 const Women = () => {
+	const [selectedProduct, setSelectedProduct] = useState(imageProduct1);
+
 	return (
 		<div className='sm:px-8 md:px-10 lg:px-20 max-w-[1120px] mx-auto h-screen'>
 			<Header />
 			<main className='mt-4 sm:my-20 sm:flex sm:items-center sm:justify-between sm:px-0 sm:gap-8 md:px-10'>
 				<section className='relative sm:w-[380px] sm:max-w-[310px]'>
-					<img
-						src={imageProduct1}
-						alt='shoe image'
-						className='aspect-square w-full sm:rounded-md sm:max-w-[310px]'
-					/>
+
 					<button className='prv-nxt-btn left-3 sm:hidden'>
 						<img
 							src={previousIcon}
@@ -41,35 +36,30 @@ const Women = () => {
 							className='inline-block w-2.5'
 						/>
 					</button>
+
+					<img
+						src={selectedProduct}
+						alt='shoe image'
+						className='aspect-square w-full sm:rounded-md sm:max-w-[310px]'
+					/>
 					<div className='hidden sm:flex w-full gap-2 mt-5'>
-						<div className='rounded-md'>
-							<img
-								src={imageProduct1Thumbnail}
-								alt='shoe thumbnail'
-								className='rounded-md'
-							/>
-						</div>
-						<div className='rounded-md'>
-							<img
-								src={imageProduct2Thumbnail}
-								alt='shoe thumbnail'
-								className='rounded-md'
-							/>
-						</div>
-						<div className='rounded-md'>
-							<img
-								src={imageProduct3Thumbnail}
-								alt='shoe thumbnail'
-								className='rounded-md'
-							/>
-						</div>
-						<div className='rounded-md'>
-							<img
-								src={imageProduct4Thumbnail}
-								alt='shoe thumbnail'
-								className='rounded-md'
-							/>
-						</div>
+						{products.map((product) => (
+							<div
+								key={product.thumbnail}
+								className='rounded-md cursor-pointer'
+								onClick={() =>
+									selectedProduct !== product.productUrl
+										? setSelectedProduct(product.productUrl)
+										: undefined
+								}
+							>
+								<img
+									src={product.thumbnail}
+									alt='shoe thumbnail'
+									className='rounded-md'
+								/>
+							</div>
+						))}
 					</div>
 				</section>
 
