@@ -28,10 +28,10 @@ const Header = () => {
 					</nav>
 				</div>
 			</div>
-			<div className='flex-center gap-4 shrink-0'>
-				<img src={cartIcon} alt='cart icon' />
-				<span>
-					<img src={avatar} alt='profile avatar' className='w-9' />
+			<div className='flex-center gap-5 shrink-0'>
+				<img src={cartIcon} alt='cart icon' className='cursor-pointer' />
+				<span className='w-10 block rounded-full hover:ring-2 hover:ring-orange cursor-pointer'>
+					<img src={avatar} alt='profile avatar' className='w-10' />
 				</span>
 			</div>
 		</header>

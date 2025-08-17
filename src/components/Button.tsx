@@ -8,7 +8,7 @@ interface Props {
 const Button = ({ children, className = '' }: Props) => {
 	return (
 		<button
-			className={`flex-center gap-4 bg-orange block w-full p-3 rounded-md justify-center ${className}`}
+			className={`flex-center gap-4 bg-orange block w-full p-3 rounded-md justify-center ${className} cursor-pointer hover:bg-pale-orange`}
 		>
 			{children}
 		</button>
