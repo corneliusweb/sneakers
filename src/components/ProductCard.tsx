@@ -6,15 +6,21 @@ import {
 	nextIcon,
 	previousIcon,
 } from '../assets/vectors';
-import type { Products } from '../constants';
+import { type Product } from '../constants';
 
-interface ProductProps {
+interface ProductCardProps {
+	product: Product;
 	selectedProduct: string;
-	products: Products[];
-	setSelectedProduct: (selectedProduct: string) => void;
+	setSelectedProduct: (url: string) => void;
 }
 
-const ProductCard = ({ selectedProduct, products, setSelectedProduct, }: ProductProps) => {
+const ProductCard = ({
+	product,
+	selectedProduct,
+	setSelectedProduct,
+}: ProductCardProps) => {
+   const { productImages, productDetails } = product;
+   
 	return (
 		<div className='mt-4 sm:my-20 sm:flex sm:items-center sm:justify-between sm:px-0 sm:gap-8 md:px-10'>
 			<section className='relative sm:w-[380px] sm:max-w-[310px]'>
@@ -35,29 +41,29 @@ const ProductCard = ({ selectedProduct, products, setSelectedProduct, }: Product
 
 				<img
 					src={selectedProduct}
-					alt='shoe image'
+					alt={productDetails.heading}
 					className='aspect-square w-full sm:rounded-md sm:max-w-[310px]'
 				/>
 				<div className='hidden sm:flex w-full gap-2 mt-5'>
-					{products.map((product) => (
+					{productImages.map((productImage, index) => (
 						<div
-							key={product.thumbnail}
+							key={productImage.thumbnail}
 							className={`border rounded-md ${
-								selectedProduct === product.productUrl
+								selectedProduct === productImage.url
 									? 'border-2 border-orange'
 									: 'border-transparent'
 							}`}
 							onClick={() =>
-								selectedProduct !== product.productUrl
-									? setSelectedProduct(product.productUrl)
+								selectedProduct !== productImage.url
+									? setSelectedProduct(productImage.url)
 									: undefined
 							}
 						>
 							<img
-								src={product.thumbnail}
-								alt='shoe thumbnail'
+								src={productImage.thumbnail}
+								alt={`${productDetails.heading} view ${index + 1}`}
 								className={`rounded-sm block h-full w-full hover:opacity-45 cursor-pointer ${
-									selectedProduct === product.productUrl
+									selectedProduct === productImage.url
 										? 'opacity-45'
 										: ''
 								}`}
@@ -67,46 +73,48 @@ const ProductCard = ({ selectedProduct, products, setSelectedProduct, }: Product
 				</div>
 			</section>
 
-			<section className='p-5 sm:w-[350px] md:w-[450px] sm:p-0'>
-				<p className='uppercase tracking-widest text-[13px] text-dark-grayish-blue font-bold'>
-					Sneaker company
-				</p>
-				<h1 className='font-bold text-3xl capitalize my-4 antialiased text-dark-blue md:mb-6'>
-					Fall limited edition <br /> Sneakers
-				</h1>
-				<p className='font-semibold text-dark-grayish-blue tracking-wide mb-7'>
-					These low profile sneakers are your perfect casual wear
-					companion. Featuring a durable rubber outer sole they'll
-					withstand everything the weather can offer.
-				</p>
-				<div className='flex-center justify-between mb-4 sm:mb-6'>
-					<p className='text-dark-blue font-bold text-2xl grow relative'>
-						$125.00
-						<span className='text-sm font-semibold bg-dark-blue text-white px-2.5 py-1 inline-block rounded-md absolute transform left-25 top-1/2 -translate-y-1/2'>
-							50%
-						</span>
-					</p>
-					<p className='font-bold text-dark-grayish-blue line-through decoration-dark-grayish-blue tracking-wide'>
-						$250.00
-					</p>
-				</div>
+			{product && (
+				<section className='p-5 sm:w-[350px] md:w-[450px] sm:p-0'>
+					<>
+						<p className='uppercase tracking-widest text-[13px] text-dark-grayish-blue font-bold'>
+							{productDetails.company}
+						</p>
+						<h1 className='font-bold text-3xl capitalize my-4 antialiased text-dark-blue md:mb-6'>
+							{productDetails.heading}
+						</h1>
+						<p className='font-semibold text-dark-grayish-blue tracking-wide mb-7'>
+							{productDetails.description}
+						</p>
+						<div className='flex-center justify-between mb-4 sm:mb-6'>
+							<p className='text-dark-blue font-bold text-2xl grow relative'>
+								${productDetails.price}
+								<span className='text-sm font-semibold bg-dark-blue text-white px-2.5 py-[3px] inline-block rounded-md absolute transform left-17 top-[45%] -translate-y-1/2'>
+									{productDetails.percentageDiscount}%
+								</span>
+							</p>
+							<p className='font-bold text-dark-grayish-blue line-through decoration-dark-grayish-blue tracking-wide'>
+								${productDetails.discountedPrice}
+							</p>
+						</div>
+					</>
 
-				<div className='sm:flex items-center'>
-					<div className='w-full bg-light-grayish-blue flex-center justify-between rounded-md mb-6 sm:mb-0 sm:w-[310px]'>
-						<button className='cursor-pointer p-4.5'>
-							<img src={minusIcon} alt='minus icon' />
-						</button>
-						<span className='font-bold'>0</span>
-						<button className='cursor-pointer p-4.5'>
-							<img src={plusIcon} alt='plus icon' />
-						</button>
+					<div className='sm:flex items-center'>
+						<div className='w-full bg-light-grayish-blue flex-center justify-between rounded-md mb-6 sm:mb-0 sm:w-[310px]'>
+							<button className='cursor-pointer p-4.5'>
+								<img src={minusIcon} alt='minus icon' />
+							</button>
+							<span className='font-bold'>0</span>
+							<button className='cursor-pointer p-4.5'>
+								<img src={plusIcon} alt='plus icon' />
+							</button>
+						</div>
+						<Button>
+							<img src={cartIcon} alt='cart icon' />
+							<span className='font-bold'>Add to cart</span>
+						</Button>
 					</div>
-					<Button>
-						<img src={cartIcon} alt='cart icon' />
-						<span className='font-bold'>Add to cart</span>
-					</Button>
-				</div>
-			</section>
+				</section>
+			)}
 		</div>
 	);
 };

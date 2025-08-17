@@ -11,11 +11,14 @@ const Women = () => {
 		<div className='sm:px-8 md:px-10 lg:px-20 max-w-[1120px] mx-auto h-screen'>
 			<Header />
 			<main>
-				<ProductCard
-					products={products}
-					selectedProduct={selectedProduct}
-					setSelectedProduct={setSelectedProduct}
-				/>
+				{products.map((product) => (
+					<ProductCard
+						key={product.productDetails.heading}
+						selectedProduct={selectedProduct}
+						setSelectedProduct={setSelectedProduct}
+						product={product}
+					/>
+				))}
 			</main>
 		</div>
 	);

@@ -9,14 +9,54 @@ import {
 	imageProduct4Thumbnail,
 } from '../assets/images';
 
-export type Products = {
-	productUrl: string;
-	thumbnail: string;
-};
+export interface Product {
+	productImages: {
+		url: string;
+		thumbnail: string;
+	}[];
+	productDetails: {
+		company: string;
+		heading: string;
+		description: string;
+		price: number;
+		percentageDiscount?: number;
+		discountedPrice?: number;
+	};
+}
 
-export const products: Products[] = [
-	{ productUrl: imageProduct1, thumbnail: imageProduct1Thumbnail },
-	{ productUrl: imageProduct2, thumbnail: imageProduct2Thumbnail },
-	{ productUrl: imageProduct3, thumbnail: imageProduct3Thumbnail },
-	{ productUrl: imageProduct4, thumbnail: imageProduct4Thumbnail },
+export const products: Product[] = [
+	{
+		productImages: [
+			{ url: imageProduct1, thumbnail: imageProduct1Thumbnail },
+			{ url: imageProduct2, thumbnail: imageProduct2Thumbnail },
+			{ url: imageProduct3, thumbnail: imageProduct3Thumbnail },
+			{ url: imageProduct4, thumbnail: imageProduct4Thumbnail },
+		],
+		productDetails: {
+			company: 'Sneaker company',
+			heading: 'Fall limited edition sneakers',
+			description:
+				"These low profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole they'll withstand everything the weather can offer.",
+			price: 125.0,
+			percentageDiscount: 50,
+			discountedPrice: 250,
+		},
+	},
+	{
+		productImages: [
+			{ url: imageProduct1, thumbnail: imageProduct1Thumbnail },
+			{ url: imageProduct2, thumbnail: imageProduct2Thumbnail },
+			{ url: imageProduct3, thumbnail: imageProduct3Thumbnail },
+			{ url: imageProduct4, thumbnail: imageProduct4Thumbnail },
+		],
+		productDetails: {
+			company: 'Sneaker company',
+			heading: 'Fall limited edition sneakers',
+			description:
+				"These low profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole they'll withstand everything the weather can offer.",
+			price: 125.0,
+			percentageDiscount: 50,
+			discountedPrice: 250,
+		},
+	},
 ];
