@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import {
 	cartIcon,
 	minusIcon,
@@ -46,7 +45,11 @@ const Women = () => {
 						{products.map((product) => (
 							<div
 								key={product.thumbnail}
-								className='rounded-md cursor-pointer'
+								className={`border rounded-md ${
+									selectedProduct === product.productUrl
+										? 'border-2 border-orange'
+										: 'border-transparent'
+								}`}
 								onClick={() =>
 									selectedProduct !== product.productUrl
 										? setSelectedProduct(product.productUrl)
@@ -56,7 +59,11 @@ const Women = () => {
 								<img
 									src={product.thumbnail}
 									alt='shoe thumbnail'
-									className='rounded-md'
+									className={`rounded-sm block h-full w-full hover:opacity-45 cursor-pointer ${
+										selectedProduct === product.productUrl
+											? 'opacity-45'
+											: ''
+									}`}
 								/>
 							</div>
 						))}
