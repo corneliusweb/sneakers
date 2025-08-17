@@ -9,7 +9,7 @@ import {
 	imageProduct4Thumbnail,
 } from '../assets/images';
 
-type Products = {
+export type Products = {
 	productUrl: string;
 	thumbnail: string;
 };

@@ -1,16 +1,8 @@
 import { useState } from 'react';
-import {
-	cartIcon,
-	minusIcon,
-	plusIcon,
-	nextIcon,
-	previousIcon,
-} from '../assets/vectors';
 import { imageProduct1 } from '../assets/images';
 import { products } from '../constants';
-
-import Button from '../components/Button';
 import Header from '../components/Header';
+import ProductCard from '../components/ProductCard';
 
 const Women = () => {
 	const [selectedProduct, setSelectedProduct] = useState(imageProduct1);
@@ -18,98 +10,12 @@ const Women = () => {
 	return (
 		<div className='sm:px-8 md:px-10 lg:px-20 max-w-[1120px] mx-auto h-screen'>
 			<Header />
-			<main className='mt-4 sm:my-20 sm:flex sm:items-center sm:justify-between sm:px-0 sm:gap-8 md:px-10'>
-				<section className='relative sm:w-[380px] sm:max-w-[310px]'>
-
-					<button className='prv-nxt-btn left-3 sm:hidden'>
-						<img
-							src={previousIcon}
-							alt='previous icon'
-							className='inline-block w-2.5'
-						/>
-					</button>
-					<button className='prv-nxt-btn right-3 sm:hidden'>
-						<img
-							src={nextIcon}
-							alt='next icon'
-							className='inline-block w-2.5'
-						/>
-					</button>
-
-					<img
-						src={selectedProduct}
-						alt='shoe image'
-						className='aspect-square w-full sm:rounded-md sm:max-w-[310px]'
-					/>
-					<div className='hidden sm:flex w-full gap-2 mt-5'>
-						{products.map((product) => (
-							<div
-								key={product.thumbnail}
-								className={`border rounded-md ${
-									selectedProduct === product.productUrl
-										? 'border-2 border-orange'
-										: 'border-transparent'
-								}`}
-								onClick={() =>
-									selectedProduct !== product.productUrl
-										? setSelectedProduct(product.productUrl)
-										: undefined
-								}
-							>
-								<img
-									src={product.thumbnail}
-									alt='shoe thumbnail'
-									className={`rounded-sm block h-full w-full hover:opacity-45 cursor-pointer ${
-										selectedProduct === product.productUrl
-											? 'opacity-45'
-											: ''
-									}`}
-								/>
-							</div>
-						))}
-					</div>
-				</section>
-
-				<section className='p-5 sm:w-[350px] md:w-[450px] sm:p-0'>
-					<p className='uppercase tracking-widest text-[13px] text-dark-grayish-blue font-bold'>
-						Sneaker company
-					</p>
-					<h1 className='font-bold text-3xl capitalize my-4 antialiased text-dark-blue md:mb-6'>
-						Fall limited edition <br /> Sneakers
-					</h1>
-					<p className='font-semibold text-dark-grayish-blue tracking-wide mb-7'>
-						These low profile sneakers are your perfect casual wear
-						companion. Featuring a durable rubber outer sole they'll
-						withstand everything the weather can offer.
-					</p>
-					<div className='flex-center justify-between mb-4 sm:mb-6'>
-						<p className='text-dark-blue font-bold text-2xl grow relative'>
-							$125.00
-							<span className='text-sm font-semibold bg-dark-blue text-white px-2.5 py-1 inline-block rounded-md absolute transform left-25 top-1/2 -translate-y-1/2'>
-								50%
-							</span>
-						</p>
-						<p className='font-bold text-dark-grayish-blue line-through decoration-dark-grayish-blue tracking-wide'>
-							$250.00
-						</p>
-					</div>
-
-					<div className='sm:flex items-center'>
-						<div className='w-full bg-light-grayish-blue flex-center justify-between rounded-md mb-6 sm:mb-0 sm:w-[310px]'>
-							<button className='cursor-pointer p-4.5'>
-								<img src={minusIcon} alt='minus icon' />
-							</button>
-							<span className='font-bold'>0</span>
-							<button className='cursor-pointer p-4.5'>
-								<img src={plusIcon} alt='plus icon' />
-							</button>
-						</div>
-						<Button>
-							<img src={cartIcon} alt='cart icon' />
-							<span className='font-bold'>Add to cart</span>
-						</Button>
-					</div>
-				</section>
+			<main>
+				<ProductCard
+					products={products}
+					selectedProduct={selectedProduct}
+					setSelectedProduct={setSelectedProduct}
+				/>
 			</main>
 		</div>
 	);
