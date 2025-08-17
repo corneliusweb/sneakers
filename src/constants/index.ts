@@ -10,6 +10,7 @@ import {
 } from '../assets/images';
 
 export interface Product {
+	id: number;
 	productImages: {
 		url: string;
 		thumbnail: string;
@@ -26,6 +27,7 @@ export interface Product {
 
 export const products: Product[] = [
 	{
+		id: 1,
 		productImages: [
 			{ url: imageProduct1, thumbnail: imageProduct1Thumbnail },
 			{ url: imageProduct2, thumbnail: imageProduct2Thumbnail },
@@ -43,6 +45,7 @@ export const products: Product[] = [
 		},
 	},
 	{
+		id: 2,
 		productImages: [
 			{ url: imageProduct1, thumbnail: imageProduct1Thumbnail },
 			{ url: imageProduct2, thumbnail: imageProduct2Thumbnail },

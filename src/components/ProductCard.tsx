@@ -19,8 +19,8 @@ const ProductCard = ({
 	selectedProduct,
 	setSelectedProduct,
 }: ProductCardProps) => {
-   const { productImages, productDetails } = product;
-   
+	const { productImages, productDetails } = product;
+
 	return (
 		<div className='mt-4 sm:my-20 sm:flex sm:items-center sm:justify-between sm:px-0 sm:gap-8 md:px-10'>
 			<section className='relative sm:w-[380px] sm:max-w-[310px]'>
@@ -88,13 +88,17 @@ const ProductCard = ({
 						<div className='flex-center justify-between mb-4 sm:mb-6'>
 							<p className='text-dark-blue font-bold text-2xl grow relative'>
 								${productDetails.price}
-								<span className='text-sm font-semibold bg-dark-blue text-white px-2.5 py-[3px] inline-block rounded-md absolute transform left-17 top-[45%] -translate-y-1/2'>
-									{productDetails.percentageDiscount}%
-								</span>
+								{productDetails.percentageDiscount && (
+									<span className='text-sm font-semibold bg-dark-blue text-white px-2.5 py-[3px] inline-block rounded-md absolute transform left-17 top-[45%] -translate-y-1/2'>
+										{productDetails.percentageDiscount}%
+									</span>
+								)}
 							</p>
-							<p className='font-bold text-dark-grayish-blue line-through decoration-dark-grayish-blue tracking-wide'>
-								${productDetails.discountedPrice}
-							</p>
+							{productDetails.discountedPrice && (
+								<p className='font-bold text-dark-grayish-blue line-through decoration-dark-grayish-blue tracking-wide'>
+									${productDetails.discountedPrice}
+								</p>
+							)}
 						</div>
 					</>
 

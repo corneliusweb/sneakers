@@ -1,21 +1,15 @@
-import { useState } from 'react';
-import { imageProduct1 } from '../assets/images';
+import ProductCardState from '../components/ProductCardState';
 import { products } from '../constants';
 import Header from '../components/Header';
-import ProductCard from '../components/ProductCard';
 
 const Women = () => {
-	const [selectedProduct, setSelectedProduct] = useState(imageProduct1);
-
 	return (
 		<div className='sm:px-8 md:px-10 lg:px-20 max-w-[1120px] mx-auto h-screen'>
 			<Header />
 			<main>
 				{products.map((product) => (
-					<ProductCard
-						key={product.productDetails.heading}
-						selectedProduct={selectedProduct}
-						setSelectedProduct={setSelectedProduct}
+					<ProductCardState
+						key={product.id}
 						product={product}
 					/>
 				))}
