@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { type Product } from '../constants';
 import ProductCard from './ProductCard';
-import ProductContext from './ProductContext';
+import ProductContext from '../context/ProductContext';
 
 interface Props {
 	product: Product;

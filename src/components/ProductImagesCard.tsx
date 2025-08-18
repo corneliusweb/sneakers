@@ -1,10 +1,8 @@
 import { previousIcon, nextIcon } from '../assets/vectors';
-import ProductContext from './ProductContext';
-import { useContext } from 'react';
+import useProductContext from '../context/useProductContext';
 
 const ProductImageCard = () => {
-	const { product, selectedProduct, setSelectedProduct } =
-		useContext(ProductContext);
+	const { product, selectedProduct, setSelectedProduct } = useProductContext();
 	const { productDetails, productImages } = product;
 
 	return (

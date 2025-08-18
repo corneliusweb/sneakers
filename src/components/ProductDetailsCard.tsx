@@ -1,10 +1,9 @@
-import { useContext } from 'react';
-import ProductContext from './ProductContext';
+import useProductContext from '../context/useProductContext';
 import Button from './Button';
 import { cartIcon, plusIcon, minusIcon } from '../assets/vectors';
 
 const ProductDetailsCard = () => {
-	const { product } = useContext(ProductContext);
+	const { product } = useProductContext();
 	const { productDetails } = product;
 
 	return (
