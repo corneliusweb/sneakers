@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { type Product } from '../constants';
 import ProductCard from './ProductCard';
+import ProductContext from './ProductContext';
 
 interface Props {
 	product: Product;
@@ -12,11 +13,11 @@ const ProductCardState = ({ product }: Props) => {
 	);
 
 	return (
-		<ProductCard
-			product={product}
-			selectedProduct={selectedProduct}
-			setSelectedProduct={setSelectedProduct}
-		/>
+		<ProductContext.Provider
+			value={{ product, selectedProduct, setSelectedProduct }}
+		>
+			<ProductCard />
+		</ProductContext.Provider>
 	);
 };
 export default ProductCardState;
