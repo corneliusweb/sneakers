@@ -3,7 +3,7 @@ import Button from './Button';
 import { cartIcon, plusIcon, minusIcon } from '../assets/vectors';
 
 const ProductDetailsCard = () => {
-	const { product } = useProductContext();
+	const { product, orderCount, setOrderCount } = useProductContext();
 	const { productDetails } = product;
 
 	return (
@@ -37,11 +37,23 @@ const ProductDetailsCard = () => {
 
 					<div className='sm:flex items-center'>
 						<div className='w-full bg-light-grayish-blue flex-center justify-between rounded-md mb-6 sm:mb-0 sm:w-[310px]'>
-							<button className='cursor-pointer p-4.5 hover:opacity-65'>
+							<button
+								className='cursor-pointer p-4.5 hover:opacity-65'
+								onClick={() =>
+									setOrderCount((prevCount) =>
+										Math.max(0, prevCount - 1)
+									)
+								}
+							>
 								<img src={minusIcon} alt='minus icon' />
 							</button>
-							<span className='font-bold'>0</span>
-							<button className='cursor-pointer p-4.5 hover:opacity-65'>
+							<span className='font-bold'>{orderCount}</span>
+							<button
+								className='cursor-pointer p-4.5 hover:opacity-65'
+								onClick={() => {
+									setOrderCount((prevCount) => prevCount + 1);
+								}}
+							>
 								<img src={plusIcon} alt='plus icon' />
 							</button>
 						</div>

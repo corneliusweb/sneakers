@@ -12,9 +12,17 @@ const ProductCardState = ({ product }: Props) => {
 		product.productImages[0]?.url || ''
 	);
 
+	const [orderCount, setOrderCount] = useState<number>(0);
+
 	return (
 		<ProductContext.Provider
-			value={{ product, selectedProduct, setSelectedProduct }}
+			value={{
+				product,
+				selectedProduct,
+				orderCount,
+				setOrderCount,
+				setSelectedProduct,
+			}}
 		>
 			<ProductCard />
 		</ProductContext.Provider>
