@@ -13,11 +13,11 @@ const ProductImageLightBox = () => {
 
 	return (
 		<div
-			className='h-screen w-screen fixed z-10 bottom-0 bg-black/70 overflow-hidden'
+			className='w-full h-full content-center fixed z-10 left-0 bottom-0 bg-black/70 overflow-hidden'
 			onClick={() => setIsModalOpen(false)}
 		>
 			<div
-				className='w-99 content-center'
+				className='w-99 mx-auto'
 				onClick={(e) => e.stopPropagation()}
 			>
 				<img

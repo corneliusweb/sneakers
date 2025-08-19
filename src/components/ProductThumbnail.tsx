@@ -7,10 +7,7 @@ const ProductThumbnail = () => {
 		product: { productDetails, productImages },
 	} = useProductContext();
 	return (
-		<div
-			className='hidden sm:flex w-full gap-2 mt-5'
-			onClick={(e) => e.stopPropagation()}
-		>
+		<div className='hidden sm:flex w-full gap-2 mt-5'>
 			{productImages.map((productImage, index) => (
 				<div
 					key={productImage.thumbnail}
