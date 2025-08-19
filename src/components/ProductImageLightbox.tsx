@@ -1,30 +1,44 @@
 import useProductContext from '../context/useProductContext';
 import ProductThumbnail from './ProductThumbnail';
+import { nextIcon, previousIcon } from '../assets/vectors';
 
 const ProductImageLightBox = () => {
 	const {
 		isModalOpen,
 		setIsModalOpen,
 		selectedProduct,
-		product: { productDetails},
+		product: { productDetails },
 	} = useProductContext();
 
 	if (!isModalOpen) return;
 
 	return (
 		<div
-			className='w-full h-full content-center fixed z-10 left-0 bottom-0 bg-black/70 overflow-hidden'
-			onClick={() => setIsModalOpen(false)}
+			className='hidden sm:block w-full h-full content-center fixed z-10 left-0 bottom-0 bg-black/70 overflow-hidden'
+			onClick={(e) => e.target === e.currentTarget && setIsModalOpen(false)}
 		>
-			<div
-				className='w-99 mx-auto'
-				onClick={(e) => e.stopPropagation()}
-			>
-				<img
-					src={selectedProduct}
-					alt={productDetails.heading}
-					className='w-full block rounded-md'
-				/>
+			<div className='w-99 mx-auto '>
+				<div className='relative'>
+					<img
+						src={selectedProduct}
+						alt={productDetails.heading}
+						className='w-full block rounded-md'
+					/>
+					<button className='prv-nxt-btn -left-4'>
+						<img
+							src={previousIcon}
+							alt='previous icon'
+							className='inline-block w-2.5'
+						/>
+					</button>
+					<button className='prv-nxt-btn -right-4'>
+						<img
+							src={nextIcon}
+							alt='next icon'
+							className='inline-block w-2.5'
+						/>
+					</button>
+				</div>
 				<ProductThumbnail />
 			</div>
 		</div>

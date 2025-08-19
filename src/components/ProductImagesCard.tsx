@@ -27,7 +27,7 @@ const ProductImageCard = () => {
 			<img
 				src={selectedProduct}
 				alt={productDetails.heading}
-				className='aspect-square w-full sm:rounded-md'
+				className='aspect-square w-full sm:rounded-md sm:cursor-pointer'
 				onClick={() => setIsModalOpen(true)}
 			/>
 			<ProductThumbnail />
