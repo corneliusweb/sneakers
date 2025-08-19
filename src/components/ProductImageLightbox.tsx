@@ -1,12 +1,12 @@
 import useProductContext from '../context/useProductContext';
+import ProductThumbnail from './ProductThumbnail';
 
 const ProductImageLightBox = () => {
 	const {
 		isModalOpen,
 		setIsModalOpen,
-		setSelectedProduct,
 		selectedProduct,
-		product: { productDetails, productImages },
+		product: { productDetails},
 	} = useProductContext();
 
 	if (!isModalOpen) return;
@@ -25,36 +25,7 @@ const ProductImageLightBox = () => {
 					alt={productDetails.heading}
 					className='w-full block rounded-md'
 				/>
-				<div
-					className='hidden sm:flex w-full gap-2 mt-5'
-					onClick={(e) => e.stopPropagation()}
-				>
-					{productImages.map((productImage, index) => (
-						<div
-							key={productImage.thumbnail}
-							className={`border rounded-md ${
-								selectedProduct === productImage.url
-									? 'border-2 border-orange'
-									: 'border-transparent'
-							}`}
-							onClick={() =>
-								selectedProduct !== productImage.url
-									? setSelectedProduct(productImage.url)
-									: undefined
-							}
-						>
-							<img
-								src={productImage.thumbnail}
-								alt={`${productDetails.heading} view ${index + 1}`}
-								className={`rounded-sm block h-full w-full hover:opacity-45 cursor-pointer ${
-									selectedProduct === productImage.url
-										? 'opacity-45'
-										: ''
-								}`}
-							/>
-						</div>
-					))}
-				</div>
+				<ProductThumbnail />
 			</div>
 		</div>
 	);
