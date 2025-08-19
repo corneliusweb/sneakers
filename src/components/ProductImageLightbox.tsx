@@ -6,6 +6,8 @@ const ProductImageLightBox = () => {
 	const {
 		isModalOpen,
 		setIsModalOpen,
+		goToNextImage,
+		goToPreviousImage,
 		selectedProduct,
 		product: { productDetails },
 	} = useProductContext();
@@ -24,14 +26,17 @@ const ProductImageLightBox = () => {
 						alt={productDetails.heading}
 						className='w-full block rounded-md'
 					/>
-					<button className='prv-nxt-btn -left-4'>
+					<button
+						className='prv-nxt-btn -left-4'
+						onClick={goToPreviousImage}
+					>
 						<img
 							src={previousIcon}
 							alt='previous icon'
 							className='inline-block w-2.5'
 						/>
 					</button>
-					<button className='prv-nxt-btn -right-4'>
+					<button className='prv-nxt-btn -right-4' onClick={goToNextImage}>
 						<img
 							src={nextIcon}
 							alt='next icon'

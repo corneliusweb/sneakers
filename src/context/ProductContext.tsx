@@ -6,6 +6,8 @@ interface ProductContextType {
 	selectedProduct: string;
 	orderCount: number;
 	isModalOpen: boolean;
+	goToNextImage: () => void;
+	goToPreviousImage: () => void;
 	setIsModalOpen: (open: boolean) => void;
 	setSelectedProduct: (url: string) => void;
 	setOrderCount: React.Dispatch<React.SetStateAction<number>>;

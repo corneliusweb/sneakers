@@ -15,6 +15,25 @@ const ProductCardState = ({ product }: Props) => {
 	const [orderCount, setOrderCount] = useState<number>(0);
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
+	const goToNextImage = () => {
+		const currentIndex = product.productImages.findIndex(
+			(img) => img.url === selectedProduct
+		);
+		const nextIndex = (currentIndex + 1) % product.productImages.length;
+		setSelectedProduct(product.productImages[nextIndex].url);
+	};
+
+	const goToPreviousImage = () => {
+		const currentIndex = product.productImages.findIndex(
+			(img) => img.url === selectedProduct
+		);
+		const previousIndex =
+			currentIndex === 0
+				? product.productImages.length - 1
+				: currentIndex - 1;
+		setSelectedProduct(product.productImages[previousIndex].url);
+	};
+
 	return (
 		<ProductContext.Provider
 			value={{
@@ -22,6 +41,8 @@ const ProductCardState = ({ product }: Props) => {
 				selectedProduct,
 				orderCount,
 				isModalOpen,
+				goToNextImage,
+				goToPreviousImage,
 				setIsModalOpen,
 				setOrderCount,
 				setSelectedProduct,

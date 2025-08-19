@@ -3,20 +3,31 @@ import useProductContext from '../context/useProductContext';
 import ProductThumbnail from './ProductThumbnail';
 
 const ProductImageCard = () => {
-	const { product, selectedProduct, setIsModalOpen} =
-		useProductContext();
-	const { productDetails} = product;
+	const {
+		product,
+		selectedProduct,
+		setIsModalOpen,
+		goToNextImage,
+		goToPreviousImage,
+	} = useProductContext();
+	const { productDetails } = product;
 
 	return (
 		<section className='relative sm:w-[340px]'>
-			<button className='prv-nxt-btn left-3 sm:hidden'>
+			<button
+				className='prv-nxt-btn left-3 sm:hidden'
+				onClick={goToPreviousImage}
+			>
 				<img
 					src={previousIcon}
 					alt='previous icon'
 					className='inline-block w-2.5'
 				/>
 			</button>
-			<button className='prv-nxt-btn right-3 sm:hidden'>
+			<button
+				className='prv-nxt-btn right-3 sm:hidden'
+				onClick={goToNextImage}
+			>
 				<img
 					src={nextIcon}
 					alt='next icon'
