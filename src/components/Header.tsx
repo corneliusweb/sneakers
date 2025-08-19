@@ -19,11 +19,11 @@ const Header = () => {
 					/>
 					<nav className=' text-black antialiased font-normal tracking-wide sm:mt-8 sm:text-dark-grayish-blue sm:font-medium sm:tracking-wide md:text-[15px]'>
 						<ul className='grid gap-4 sm:gap-3 sm:flex'>
-							<li className='sm:pb-7 sm:border-b-transparent sm:border-b-3 cursor-pointer hover:border-b-orange'>Collections</li>
-							<li className='sm:pb-7 sm:border-b-transparent sm:border-b-3 cursor-pointer hover:border-b-orange'>Men</li>
-							<li className='sm:pb-7 sm:border-b-transparent sm:border-b-3 cursor-pointer hover:border-b-orange'>Women</li>
-							<li className='sm:pb-7 sm:border-b-transparent sm:border-b-3 cursor-pointer hover:border-b-orange'>About</li>
-							<li className='sm:pb-7 sm:border-b-transparent sm:border-b-3 cursor-pointer hover:border-b-orange'>Contact</li>
+							<li className='nav-list'>Collections</li>
+							<li className='nav-list'>Men</li>
+							<li className='nav-list'>Women</li>
+							<li className='nav-list'>About</li>
+							<li className='nav-list'>Contact</li>
 						</ul>
 					</nav>
 				</div>
