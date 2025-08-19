@@ -13,6 +13,7 @@ const ProductCardState = ({ product }: Props) => {
 	);
 
 	const [orderCount, setOrderCount] = useState<number>(0);
+	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
 	return (
 		<ProductContext.Provider
@@ -20,6 +21,8 @@ const ProductCardState = ({ product }: Props) => {
 				product,
 				selectedProduct,
 				orderCount,
+				isModalOpen,
+				setIsModalOpen,
 				setOrderCount,
 				setSelectedProduct,
 			}}

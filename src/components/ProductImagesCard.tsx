@@ -2,7 +2,8 @@ import { previousIcon, nextIcon } from '../assets/vectors';
 import useProductContext from '../context/useProductContext';
 
 const ProductImageCard = () => {
-	const { product, selectedProduct, setSelectedProduct } = useProductContext();
+	const { product, selectedProduct, setIsModalOpen, setSelectedProduct } =
+		useProductContext();
 	const { productDetails, productImages } = product;
 
 	return (
@@ -26,6 +27,7 @@ const ProductImageCard = () => {
 				src={selectedProduct}
 				alt={productDetails.heading}
 				className='aspect-square w-full sm:rounded-md'
+				onClick={() => setIsModalOpen(true)}
 			/>
 			<div className='hidden sm:flex w-full gap-2 mt-5'>
 				{productImages.map((productImage, index) => (
