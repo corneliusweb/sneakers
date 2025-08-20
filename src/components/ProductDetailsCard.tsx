@@ -1,10 +1,13 @@
 import useProductContext from '../context/useProductContext';
+import useCartContext from '../context/useCartContext';
 import Button from './Button';
 import { cartIcon, plusIcon, minusIcon } from '../assets/vectors';
 
 const ProductDetailsCard = () => {
-	const { product, orderCount, setOrderCount } = useProductContext();
+	const { product, orderCount, selectedProduct, setOrderCount } =
+		useProductContext();
 	const { productDetails } = product;
+	const { addToCart } = useCartContext();
 
 	return (
 		<>
@@ -57,7 +60,12 @@ const ProductDetailsCard = () => {
 								<img src={plusIcon} alt='plus icon' />
 							</button>
 						</div>
-						<Button>
+						<Button
+							onClick={() =>
+								addToCart(product, selectedProduct, orderCount)
+							}
+							disabled={orderCount === 0}
+						>
 							<img src={cartIcon} alt='cart icon' />
 							<span className='font-bold'>Add to cart</span>
 						</Button>

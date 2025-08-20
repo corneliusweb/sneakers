@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import { type Product } from '../constants';
 
-interface CartItem {
+export interface CartItem {
 	product: Product;
 	quantity: number;
 	selectedProduct: string;

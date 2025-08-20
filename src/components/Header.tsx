@@ -1,9 +1,14 @@
 import { logo, cartIcon, menuIcon, closeIcon } from '../assets/vectors';
 import { avatar } from '../assets/images';
 import { useEffect, useState } from 'react';
+import CartModal from './CartModal';
+import useCartContext from '../context/useCartContext';
 
 const Header = () => {
 	const [isNavOpen, setIsNavOpen] = useState(false);
+	const { isOpen, toggleCart, items } = useCartContext();
+
+	const total = items.reduce((sum, i) => sum + i.quantity, 0);
 
 	useEffect(() => {
 		const html = document.documentElement;
@@ -65,8 +70,21 @@ const Header = () => {
 					</div>
 				</div>
 			</div>
-			<div className='flex-center gap-6 shrink-0'>
-				<img src={cartIcon} alt='cart icon' className='cursor-pointer' />
+			<div className='flex-center gap-6 shrink-0 relative'>
+				<div className='relative'>
+					<img
+						src={cartIcon}
+						alt='cart icon'
+						className='cursor-pointer'
+						onClick={toggleCart}
+					/>
+					{total > 0 && (
+						<span className='absolute -top-2 -right-2 bg-orange text-white text-xs rounded-full w-5 h-5 flex items-center justify-center'>
+							{total}
+						</span>
+					)}
+				</div>
+				{isOpen && <CartModal />}
 				<span className='w-10 block rounded-full hover:ring-2 hover:ring-orange cursor-pointer'>
 					<img src={avatar} alt='profile avatar' className='w-10' />
 				</span>
