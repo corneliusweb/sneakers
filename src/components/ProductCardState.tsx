@@ -15,6 +15,12 @@ const ProductCardState = ({ product }: Props) => {
 	const [orderCount, setOrderCount] = useState<number>(0);
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
+	if (isModalOpen) {
+		document.body.style.overflow = 'hidden';
+	} else {
+		document.body.style.overflow = 'scroll';
+	}
+
 	const goToNextImage = () => {
 		const currentIndex = product.productImages.findIndex(
 			(img) => img.url === selectedProduct
