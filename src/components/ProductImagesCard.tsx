@@ -13,7 +13,7 @@ const ProductImageCard = () => {
 	const { productDetails } = product;
 
 	return (
-		<section className='relative sm:w-[340px]'>
+		<section className='relative sm:max-w-[300px]'>
 			<button
 				className='prv-nxt-btn left-3 sm:hidden'
 				onClick={goToPreviousImage}

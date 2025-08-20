@@ -9,7 +9,7 @@ const ProductDetailsCard = () => {
 	return (
 		<>
 			{productDetails && (
-				<section className='p-4 w-[406px]'>
+				<section className='p-4 sm:max-w-[406px]'>
 					<p className='uppercase tracking-widest text-[13px] text-dark-grayish-blue font-bold'>
 						{productDetails.company}
 					</p>
@@ -35,8 +35,8 @@ const ProductDetailsCard = () => {
 						)}
 					</div>
 
-					<div className='sm:flex items-center'>
-						<div className='w-full bg-light-grayish-blue flex-center justify-between rounded-md mb-6 sm:mb-0 sm:w-[310px]'>
+					<div className='sm:flex items-center sm:justify-between'>
+						<div className='w-full bg-light-grayish-blue flex-center justify-between rounded-md mb-6 sm:mb-0 sm:max-w-[310px] sm:w-60'>
 							<button
 								className='cursor-pointer p-4.5 hover:opacity-65'
 								onClick={() =>
