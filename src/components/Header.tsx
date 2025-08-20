@@ -1,9 +1,25 @@
 import { logo, cartIcon, menuIcon, closeIcon } from '../assets/vectors';
 import { avatar } from '../assets/images';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Header = () => {
 	const [isNavOpen, setIsNavOpen] = useState(false);
+
+	useEffect(() => {
+		const html = document.documentElement; // <html>
+		if (isNavOpen) {
+			html.style.overflow = 'hidden';
+			document.body.style.overflow = 'hidden';
+		} else {
+			html.style.overflow = '';
+			document.body.style.overflow = '';
+		}
+
+		return () => {
+			html.style.overflow = '';
+			document.body.style.overflow = '';
+		};
+	}, [isNavOpen]);
 
 	return (
 		<header className='flex-center justify-between pt-4 px-4 mb-5 sm:mb-15 sm:pt-0 sm:px-0 sm:border-b-2 sm:border-dark-blue/10'>
@@ -22,7 +38,7 @@ const Header = () => {
 				/>
 
 				<div
-					className={`absolute z-10 top-0 left-0 bg-black/70 w-full h-screen sm:bg-transparent sm:p-0 sm:static sm:h-auto sm:z-auto sm:top-auto sm:left-auto sm:block ${
+					className={`fixed inset-0 z-50 bg-black/70 sm:bg-transparent sm:static sm:h-auto sm:z-auto sm:block ${
 						isNavOpen ? 'block' : 'hidden'
 					}`}
 					onClick={(e) =>

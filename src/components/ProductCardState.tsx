@@ -15,10 +15,10 @@ const ProductCardState = ({ product }: Props) => {
 	const [orderCount, setOrderCount] = useState<number>(0);
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-	if (isModalOpen) {
+	if (isModalOpen && window.innerWidth >= 695) { // only apply on sm: breakpoint
 		document.body.style.overflow = 'hidden';
 	} else {
-		document.body.style.overflow = 'scroll';
+		document.body.style.overflow = 'unset';
 	}
 
 	const goToNextImage = () => {
