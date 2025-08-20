@@ -6,7 +6,7 @@ const Header = () => {
 	const [isNavOpen, setIsNavOpen] = useState(false);
 
 	useEffect(() => {
-		const html = document.documentElement; // <html>
+		const html = document.documentElement;
 		if (isNavOpen) {
 			html.style.overflow = 'hidden';
 			document.body.style.overflow = 'hidden';
