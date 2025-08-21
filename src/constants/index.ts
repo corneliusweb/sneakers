@@ -25,7 +25,7 @@ export interface Product {
 	};
 }
 
-export const products: Product[] = [
+export const womenProducts: Product[] = [
 	{
 		id: 1,
 		productImages: [
