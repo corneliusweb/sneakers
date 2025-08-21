@@ -12,6 +12,7 @@ interface CartContextType {
 	addToCart: (product: Product, image: string, qty: number) => void;
 	isOpen: boolean;
 	toggleCart: () => void;
+	removeFromCart: (id: number) => void;
 }
 
 const CartContext = createContext<CartContextType | null>(null);

@@ -2,7 +2,7 @@ import useCartContext from '../context/useCartContext';
 import Button from './Button';
 
 const CartModal = () => {
-	const { items } = useCartContext();
+	const { items, removeFromCart } = useCartContext();
 
 	return (
 		<div className='absolute top-12 right-0 bg-white w-80 p-4 rounded shadow-lg'>
@@ -11,23 +11,27 @@ const CartModal = () => {
 				<p className='text-center text-gray-500 py-8'>Your cart is empty</p>
 			) : (
 				<>
-					{items.map((i) => (
-						<div key={i.product.id} className='flex gap-4 mb-4'>
+					{items.map((item) => (
+						<div key={item.product.id} className='flex gap-4 mb-4'>
 							<img
-								src={i.selectedProduct}
-								alt={i.product.productDetails.heading}
+								src={item.selectedProduct}
+								alt={item.product.productDetails.heading}
 								className='w-12 h-12 rounded'
 							/>
 							<div className='flex-1 text-sm'>
-								{i.product.productDetails.heading}
-								<br />${i.product.productDetails.price} x {i.quantity}{' '}
+								{item.product.productDetails.heading}
+								<br />${item.product.productDetails.price} x{' '}
+								{item.quantity}{' '}
 								<b>
 									$
 									{(
-										i.product.productDetails.price * i.quantity
+										item.product.productDetails.price * item.quantity
 									).toFixed(2)}
 								</b>
 							</div>
+							<button className='cursor-pointer' onClick={() => removeFromCart(item.product.id)}>
+								🗑️
+							</button>
 						</div>
 					))}
 					<Button className='w-full bg-orange text-white py-2 rounded'>

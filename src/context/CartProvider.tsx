@@ -23,6 +23,12 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
 		});
 	};
 
+	const removeFromCart = (id: number) => {
+		setItems((prev: CartItem[]): CartItem[] =>
+			prev.filter((i) => i.product.id !== id)
+		);
+	};
+
 	return (
 		<CartContext.Provider
 			value={{
@@ -30,6 +36,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
 				addToCart,
 				isOpen,
 				toggleCart: () => setIsOpen((o) => !o),
+				removeFromCart,
 			}}
 		>
 			{children}
