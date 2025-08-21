@@ -5,7 +5,7 @@ const CartModal = () => {
 	const { items, removeFromCart } = useCartContext();
 
 	return (
-		<div className='absolute z-50 top-12 right-0 bg-white w-90 p-4 rounded shadow-lg  max-mobile:top-18 max-mobile:min-h-56 max-mobile:-right-2'>
+		<div className='absolute z-1 top-12 right-0 bg-white w-90 p-4 rounded shadow-lg  max-mobile:top-18 max-mobile:min-h-56 max-mobile:-right-2'>
 			<h1 className='font-bold mb-4 max-mobile:mb-5 max-mobile:pb-5 max-mobile:border-b-2 max-mobile:border-black/10'>
 				Cart
 			</h1>

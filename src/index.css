@@ -29,7 +29,7 @@
 	--color-light-grayish-blue: hsl(223, 64%, 98%);
 
 	--breakpoint-sm: 695px;
-	--breakpoint-mobile: 376px;
+	--breakpoint-mobile: 380px;
 }
 
 @layer base {

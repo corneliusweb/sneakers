@@ -43,7 +43,7 @@ const Header = () => {
 				/>
 
 				<div
-					className={`fixed inset-0 z-50 bg-black/70 sm:bg-transparent sm:static sm:h-auto sm:z-auto sm:block ${
+					className={`fixed inset-0 z-[100] bg-black/70 sm:bg-transparent sm:static sm:h-auto sm:z-auto sm:block ${
 						isNavOpen ? 'block' : 'hidden'
 					}`}
 					onClick={(e) =>
