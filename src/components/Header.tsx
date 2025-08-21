@@ -85,7 +85,7 @@ const Header = () => {
 				</div>
 				{isOpen && <CartModal />}
 				<span className='w-10 block rounded-full hover:ring-2 hover:ring-orange cursor-pointer'>
-					<img src={avatar} alt='profile avatar' className='w-10' />
+					<img src={avatar} alt='profile avatar' className='w-10 -mt-2' />
 				</span>
 			</div>
 		</header>
