@@ -33,13 +33,17 @@ const CartModal = () => {
 							</div>
 							<button
 								className='cursor-pointer'
-								onClick={() => removeFromCart(item.product.id)}
+								onClick={(e) => {
+									e.stopPropagation();
+									removeFromCart(item.product.id);
+								}}
 							>
 								🗑️
 							</button>
 						</div>
 					))}
-					<Button className='w-full bg-orange text-white py-2 rounded'>
+						<Button className='w-full bg-orange text-white py-2 rounded'
+						disabled={true}>
 						Checkout
 					</Button>
 				</>

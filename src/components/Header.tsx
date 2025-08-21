@@ -10,6 +10,24 @@ const Header = () => {
 
 	const total = items.reduce((sum, i) => sum + i.quantity, 0);
 
+	// Close cart when clicking outside
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			const target = event.target as Element;
+			if (isOpen && !target.closest('.cart-container')) {
+				setIsOpen(false);
+			}
+		};
+
+		if (isOpen) {
+			document.addEventListener('click', handleClickOutside);
+		}
+
+		return () => {
+			document.removeEventListener('click', handleClickOutside);
+		};
+	}, [isOpen, setIsOpen]);
+
 	useEffect(() => {
 		const html = document.documentElement;
 		if (isNavOpen) {
@@ -72,9 +90,8 @@ const Header = () => {
 			</div>
 			<div className='flex-center gap-6 shrink-0 relative'>
 				<div
-					className='relative cursor-pointer p-1 mt-2 z-50'
-					onMouseEnter={() => setIsOpen(true)}
-					onMouseLeave={() => setIsOpen(false)}
+					className='relative cursor-pointer p-1 mt-2 z-50 cart-container'
+					onClick={() => setIsOpen(!isOpen)}
 				>
 					<img src={cartIcon} alt='cart icon' className='cursor-pointer' />
 					{total > 0 && (
