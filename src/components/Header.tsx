@@ -10,11 +10,16 @@ const Header = () => {
 
 	const total = items.reduce((sum, i) => sum + i.quantity, 0);
 
-	// Close cart when clicking outside
+	// Close cart when clicking outside (desktop only)
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
 			const target = event.target as Element;
-			if (isOpen && !target.closest('.cart-container')) {
+			// Only apply click-outside on desktop (sm and up)
+			if (
+				isOpen &&
+				!target.closest('.cart-container') &&
+				window.innerWidth >= 640
+			) {
 				setIsOpen(false);
 			}
 		};
@@ -28,9 +33,10 @@ const Header = () => {
 		};
 	}, [isOpen, setIsOpen]);
 
+	// Handle body scroll for both nav and mobile cart
 	useEffect(() => {
 		const html = document.documentElement;
-		if (isNavOpen) {
+		if (isNavOpen || (isOpen && window.innerWidth < 640)) {
 			html.style.overflow = 'hidden';
 			document.body.style.overflow = 'hidden';
 		} else {
@@ -42,7 +48,7 @@ const Header = () => {
 			html.style.overflow = '';
 			document.body.style.overflow = '';
 		};
-	}, [isNavOpen]);
+	}, [isNavOpen, isOpen]);
 
 	return (
 		<header className='flex-center justify-between pt-4 px-4 mb-5 sm:mb-15 sm:pt-0 sm:px-0 sm:border-b-2 sm:border-dark-blue/10'>
