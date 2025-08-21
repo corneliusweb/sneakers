@@ -34,7 +34,7 @@ Users should be able to:
 - Products are rendered dynamically, **NOT** hard-coded. The data lives in `./src/constants/index.ts`
 - By simply adding other **Product objects** to the array, you'll have multiple products rendered with individual states.
 - Users can add, and manage multiple products in their cart.
-- This project features extensive reusable component. Therefore, future expansion/completion is made easy.
+- This project features many reusable components. Therefore, future expansion/completion is made easy.
 
 ### Screenshot
 

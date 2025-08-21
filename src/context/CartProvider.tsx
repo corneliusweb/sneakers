@@ -11,12 +11,12 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
 		if (qty <= 0) return;
 
 		setItems((prev: CartItem[]): CartItem[] => {
-			const existing = prev.find((i) => i.product.id === product.id);
+			const existing = prev.find((item) => item.product.id === product.id);
 			if (existing) {
-				return prev.map((i) =>
-					i.product.id === product.id
-						? { ...i, quantity: qty, selectedImage: image }
-						: i
+				return prev.map((item) =>
+					item.product.id === product.id
+						? { ...item, quantity: qty, selectedImage: image }
+						: item
 				);
 			}
 			return [...prev, { product, quantity: qty, selectedProduct: image }];
@@ -25,7 +25,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
 	const removeFromCart = (id: number) => {
 		setItems((prev: CartItem[]): CartItem[] =>
-			prev.filter((i) => i.product.id !== id)
+			prev.filter((item) => item.product.id !== id)
 		);
 	};
 
