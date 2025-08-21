@@ -58,7 +58,7 @@ const Header = () => {
 								className='mb-12 sm:hidden'
 							/>
 						</button>
-						<nav className=' text-black antialiased font-normal tracking-wide sm:mt-1 sm:text-dark-grayish-blue sm:font-medium sm:tracking-wide md:text-[15px]'>
+						<nav className=' text-black antialiased font-normal tracking-wide sm:mt-2 sm:text-dark-grayish-blue sm:font-medium sm:tracking-wide md:text-[15px]'>
 							<ul className='grid gap-4 sm:gap-3 sm:flex'>
 								<li className='nav-list'>Collections</li>
 								<li className='nav-list'>Men</li>
@@ -72,7 +72,7 @@ const Header = () => {
 			</div>
 			<div className='flex-center gap-6 shrink-0 relative'>
 				<div
-					className='relative cursor-pointer p-1 z-50'
+					className='relative cursor-pointer p-1 mt-2 z-50'
 					onMouseEnter={() => setIsOpen(true)}
 					onMouseLeave={() => setIsOpen(false)}
 				>
@@ -85,7 +85,7 @@ const Header = () => {
 				</div>
 				{isOpen && <CartModal />}
 				<span className='w-10 block rounded-full hover:ring-2 hover:ring-orange cursor-pointer'>
-					<img src={avatar} alt='profile avatar' className='w-10 -mt-2' />
+					<img src={avatar} alt='profile avatar' className='w-10' />
 				</span>
 			</div>
 		</header>
