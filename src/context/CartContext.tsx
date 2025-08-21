@@ -11,7 +11,7 @@ interface CartContextType {
 	items: CartItem[];
 	addToCart: (product: Product, image: string, qty: number) => void;
 	isOpen: boolean;
-	toggleCart: () => void;
+	setIsOpen: (truth: boolean) => void;
 	removeFromCart: (id: number) => void;
 }
 

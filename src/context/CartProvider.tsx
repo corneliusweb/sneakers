@@ -35,7 +35,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
 				items,
 				addToCart,
 				isOpen,
-				toggleCart: () => setIsOpen((o) => !o),
+				setIsOpen,
 				removeFromCart,
 			}}
 		>

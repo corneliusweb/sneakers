@@ -9,6 +9,11 @@ const ProductDetailsCard = () => {
 	const { productDetails } = product;
 	const { addToCart } = useCartContext();
 
+	const handleAddToCart = () => {
+		addToCart(product, selectedProduct, orderCount);
+		setOrderCount(0);
+	};
+
 	return (
 		<>
 			{productDetails && (
@@ -60,12 +65,7 @@ const ProductDetailsCard = () => {
 								<img src={plusIcon} alt='plus icon' />
 							</button>
 						</div>
-						<Button
-							onClick={() =>
-								addToCart(product, selectedProduct, orderCount)
-							}
-							disabled={orderCount === 0}
-						>
+						<Button onClick={handleAddToCart} disabled={orderCount === 0}>
 							<img src={cartIcon} alt='cart icon' />
 							<span className='font-bold'>Add to cart</span>
 						</Button>

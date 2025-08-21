@@ -6,7 +6,7 @@ import useCartContext from '../context/useCartContext';
 
 const Header = () => {
 	const [isNavOpen, setIsNavOpen] = useState(false);
-	const { isOpen, toggleCart, items } = useCartContext();
+	const { isOpen, setIsOpen, items } = useCartContext();
 
 	const total = items.reduce((sum, i) => sum + i.quantity, 0);
 
@@ -71,13 +71,12 @@ const Header = () => {
 				</div>
 			</div>
 			<div className='flex-center gap-6 shrink-0 relative'>
-				<div className='relative'>
-					<img
-						src={cartIcon}
-						alt='cart icon'
-						className='cursor-pointer'
-						onClick={toggleCart}
-					/>
+				<div
+					className='relative cursor-pointer p-1 z-50'
+					onMouseEnter={() => setIsOpen(true)}
+					onMouseLeave={() => setIsOpen(false)}
+				>
+					<img src={cartIcon} alt='cart icon' className='cursor-pointer' />
 					{total > 0 && (
 						<span className='absolute -top-2 -right-2 bg-orange text-white text-xs rounded-full w-5 h-5 flex items-center justify-center'>
 							{total}
